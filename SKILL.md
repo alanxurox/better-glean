@@ -112,6 +112,8 @@ Format: `key:value` pairs joined by `|`. Only use keys/values you saw in actual 
 
 ## App Filter Reference
 
+**Common sources:**
+
 | Value | Source |
 |-------|--------|
 | `slack` | Slack messages & threads |
@@ -124,14 +126,62 @@ Format: `key:value` pairs joined by `|`. Only use keys/values you saw in actual 
 | `outlook` | Outlook emails |
 | `microsoftteams` | Teams messages |
 | `zoom` | Zoom recordings/transcripts |
-| `notion` | Notion pages |
-| `trello` | Trello boards |
-| `servicenow` | ServiceNow tickets |
-| `datadog` | Datadog monitors |
-| `tableau` | Tableau dashboards |
 | `people` | People directory |
 
-Not all apps may be indexed in your instance. If a filter returns nothing, try without it.
+**Cloud & DevOps:**
+
+| Value | Source |
+|-------|--------|
+| `gcp` | Google Cloud Platform |
+| `azure` | Azure DevOps |
+| `jfrog` | JFrog Artifactory |
+| `datadog` | Datadog monitors/dashboards |
+| `servicenow` | ServiceNow tickets |
+
+**Salesforce:**
+
+| Value | Source |
+|-------|--------|
+| `salescloud` | Salesforce Sales Cloud |
+| `servicecloud` | Salesforce Service Cloud |
+
+**Productivity & PM:**
+
+| Value | Source |
+|-------|--------|
+| `notion` | Notion pages |
+| `trello` | Trello boards |
+| `smartsheet` | Smartsheet |
+| `airtable` | Airtable |
+| `workday` | Workday HR |
+| `testrail` | TestRail |
+
+**Design:**
+
+| Value | Source |
+|-------|--------|
+| `zeplin` | Zeplin |
+| `invision` | InVision |
+| `lucid` | Lucidchart |
+| `bynder` | Bynder DAM |
+
+**Reporting:**
+
+| Value | Source |
+|-------|--------|
+| `tableau` | Tableau dashboards |
+| `gdatastudio` | Google Data Studio |
+| `googlesites` | Google Sites |
+
+**Glean-native:**
+
+| Value | Source |
+|-------|--------|
+| `collections` | Glean collections |
+| `answers` | Glean answers |
+| `announcements` | Glean announcements |
+
+Not all apps are indexed in every Glean instance. If a filter returns nothing, try without it.
 
 ## Multi-Angle Strategy
 
