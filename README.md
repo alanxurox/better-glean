@@ -28,30 +28,39 @@ search(query="migration", app="slack", channel="team-engineering", updated="past
 
 ## Install
 
-### Claude Code (Agent Skills)
+### One-line install (Claude Code)
 
 ```bash
-# Copy to your skills directory
-cp -r better-glean/ ~/.claude/skills/glean-search/
+# Clone and install as skill
+git clone https://github.com/alanxurox/better-glean.git ~/.claude/skills/glean-search
 ```
 
-Or add to your `CLAUDE.md`:
-```markdown
-## Glean Search
-When searching internal docs, load `~/.claude/skills/glean-search/SKILL.md` for precise query patterns.
+That's it. Claude Code auto-discovers skills in `~/.claude/skills/`.
+
+### GenDigital internal
+
+```bash
+git clone https://git.int.avast.com/Alan-Xu/better-glean.git ~/.claude/skills/glean-search
 ```
 
 ### Cursor
 
 ```bash
-cp -r better-glean/ ~/.cursor/skills/glean-search/
+git clone https://github.com/alanxurox/better-glean.git ~/.cursor/skills/glean-search
 ```
 
 Reference in `.cursorrules` or load via Read tool when needed.
 
-### Any AI Coding Agent
+### Manual (any agent)
 
-The skill is a single markdown file (`SKILL.md`). Feed it to any agent that has Glean MCP access. It works by teaching the agent what parameters exist and when to use them.
+The skill is a single markdown file (`SKILL.md`). Copy it anywhere your agent can read it. No dependencies, no build step.
+
+### Add to CLAUDE.md (optional)
+
+```markdown
+## Glean Search
+When searching internal docs, load `~/.claude/skills/glean-search/SKILL.md` for precise query patterns.
+```
 
 ## What It Covers
 
@@ -84,6 +93,27 @@ Glean MCP is powerful but under-documented for AI agent use. The [MCP server ins
 - **Multi-angle strategy** — searching 3 ways for thorough coverage
 
 This skill closes that gap.
+
+## Format
+
+This skill follows the [Agent Skills](https://agentskills.io) open standard — the portable format for extending AI agents with specialized knowledge.
+
+```
+better-glean/
+├── SKILL.md              # Agent skill (the instructions)
+├── README.md             # Human documentation
+└── .agentskills.json     # Skill metadata & compatibility
+```
+
+**Compatible with:** Claude Code, Cursor, Windsurf, Cline, and any agent that supports the Agent Skills format.
+
+## Related Skills
+
+| Skill | What It Does | Repo |
+|-------|-------------|------|
+| **content-dev-skills** | IPM style guides as Agent Skills for content development | [git.int.avast.com/ipm/content-dev-skills](https://git.int.avast.com/ipm/content-dev-skills) |
+
+Building more skills? The Agent Skills spec is at [agentskills.io/specification](https://agentskills.io/specification).
 
 ## Requirements
 

@@ -1,0 +1,20 @@
+{
+  "name": "better-glean",
+  "version": "1.0.0",
+  "description": "Precise Glean MCP query patterns — stop getting 16 generic results",
+  "author": "Alan Xu",
+  "license": "MIT",
+  "keywords": ["glean", "mcp", "search", "enterprise", "internal-search", "agent-skill"],
+  "repository": "https://github.com/alanxurox/better-glean",
+  "skills": [
+    {
+      "name": "glean-search",
+      "path": "SKILL.md",
+      "description": "Query patterns for Glean MCP — precise internal search across Slack, Jira, Confluence, PRs, and people"
+    }
+  ],
+  "compatibility": {
+    "agents": ["claude-code", "cursor", "windsurf", "cline"],
+    "requires": ["glean-mcp-server"]
+  }
+}
