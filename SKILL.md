@@ -13,7 +13,7 @@ triggers:
 
 # Glean Search Patterns
 
-Your Glean MCP has 15+ parameters. Most AI agents use one: `query`. This skill teaches precise queries.
+Your Glean MCP has 12 search parameters. Most AI agents use one: `query`. This skill teaches precise queries.
 
 ## The Problem
 
@@ -23,8 +23,11 @@ search(query="deployment automation")
 → 16 generic results across all sources
 
 # What this skill teaches:
-search(query="deployment automation", app="githubenterprise", type="pull", from="me", sort_by_recency=true)
-→ Your recent PRs about deployment automation
+search(query="deployment automation", app="githubenterprise", type="pull")
+→ PRs about deployment automation
+
+search(query="*", from="me", sort_by_recency=true)
+→ Everything you touched recently
 ```
 
 ## Three Tools

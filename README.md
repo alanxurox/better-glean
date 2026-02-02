@@ -2,7 +2,7 @@
 
 **Agent Skill that teaches AI coding agents to use Glean MCP precisely.**
 
-Your Glean MCP server has 15+ search parameters. Most AI agents use one: `query`. This means every internal search returns 16 generic results when it could return exactly what you need.
+Your Glean MCP server has 12 search parameters. Most AI agents use one: `query`. This means every internal search returns 16 generic results when it could return exactly what you need.
 
 ## Before & After
 
@@ -12,8 +12,11 @@ search(query="deployment automation")
 # → 16 mixed results from Slack, Confluence, Jira, GitHub...
 
 # After: precise query
-search(query="deployment automation", app="githubenterprise", type="pull", from="me", sort_by_recency=true)
-# → Your recent PRs about deployment automation
+search(query="deployment automation", app="githubenterprise", type="pull")
+# → PRs about deployment automation
+
+search(query="*", from="me", sort_by_recency=true)
+# → Everything you touched recently
 ```
 
 ```python
@@ -22,8 +25,8 @@ search(query="what did the team discuss about the migration")
 # → Stale Confluence pages from 2024
 
 # After: targeted Slack search
-search(query="migration", app="slack", channel="team-engineering", updated="past_week")
-# → This week's Slack thread about the migration
+search(query="migration", app="slack", updated="past_week")
+# → This week's Slack discussions about the migration
 ```
 
 ## Install
@@ -91,7 +94,7 @@ When searching internal docs, load `~/.claude/skills/glean-search/SKILL.md` for 
 | Exhaustive list | `exhaustive=true` |
 | Faceted refinement | `dynamic_search_result_filters` |
 
-Plus: 16 app sources, multi-angle search strategy, anti-patterns, and agent delegation rules.
+Plus: 40+ app sources, multi-angle search strategy, anti-patterns, and agent delegation rules.
 
 ## Why This Exists
 
