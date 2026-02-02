@@ -31,8 +31,7 @@ search(query="migration", app="slack", channel="team-engineering", updated="past
 ### Claude Code — Plugin Marketplace (recommended)
 
 ```bash
-# From the cloned repo directory:
-claude plugin marketplace add $(pwd)
+claude plugin marketplace add https://github.com/alanxurox/better-glean.git
 claude plugin install better-glean@better-glean
 ```
 
