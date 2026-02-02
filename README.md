@@ -28,14 +28,27 @@ search(query="migration", app="slack", channel="team-engineering", updated="past
 
 ## Install
 
-### One-line install (Claude Code)
+### Claude Code — Plugin Marketplace (recommended)
 
 ```bash
-# Clone and install as skill
+# From the cloned repo directory:
+claude plugin marketplace add $(pwd)
+claude plugin install better-glean@better-glean
+```
+
+Or one-line clone + auto-discover:
+
+```bash
 git clone https://github.com/alanxurox/better-glean.git ~/.claude/skills/glean-search
 ```
 
-That's it. Claude Code auto-discovers skills in `~/.claude/skills/`.
+Claude Code auto-discovers skills in `~/.claude/skills/`.
+
+### OpenSkills (any agent)
+
+```bash
+npx openskills install https://github.com/alanxurox/better-glean.git
+```
 
 ### GenDigital internal
 
