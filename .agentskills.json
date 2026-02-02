@@ -1,16 +1,23 @@
 {
   "name": "better-glean",
-  "version": "0.1.0",
-  "description": "Precise Glean MCP query patterns — stop getting 16 generic results",
+  "version": "0.2.0",
+  "description": "Skill + autonomous agent for precise Glean MCP searches",
   "author": "Alan Xu",
   "license": "MIT",
-  "keywords": ["glean", "mcp", "search", "enterprise", "internal-search", "agent-skill"],
+  "keywords": ["glean", "mcp", "search", "enterprise", "internal-search", "agent-skill", "autonomous-agent"],
   "repository": "https://github.com/alanxurox/better-glean",
   "skills": [
     {
       "name": "glean-search",
       "path": "SKILL.md",
       "description": "Query patterns for Glean MCP — precise internal search across Slack, Jira, Confluence, PRs, and people"
+    }
+  ],
+  "agents": [
+    {
+      "name": "glean-researcher",
+      "path": "agents/glean-researcher.md",
+      "description": "Autonomous internal knowledge researcher — takes a question, plans multi-angle searches, synthesizes results with sources"
     }
   ],
   "compatibility": {
