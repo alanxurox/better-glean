@@ -23,11 +23,11 @@ search(query="deployment automation")
 → 16 generic results across all sources
 
 # What this skill teaches:
-search(query="deployment automation", app="githubenterprise", type="pull")
-→ PRs about deployment automation
+search(query="migration", app="slack", updated="past_week")
+→ This week's Slack discussions about the migration
 
-search(query="*", from="me", sort_by_recency=true)
-→ Everything you touched recently
+search(query="*", owner="me", sort_by_recency=true)
+→ Everything you authored recently
 ```
 
 ## Three Tools
@@ -46,7 +46,7 @@ search(query="*", from="me", sort_by_recency=true)
 ```
 search(query="*", from="Person Name", sort_by_recency=true)
 ```
-`from` = updated by, commented on, or created by. Use `owner` to restrict to docs they created (not just touched).
+`from` = updated by, commented on, or created by (broad — includes commenters). Use `owner` to restrict to docs they actually created.
 
 ### Find Slack discussions
 ```
@@ -75,7 +75,7 @@ Add `owner="Person Name"` for docs a specific person authored.
 ```
 search(query="content-dev-skills", app="githubenterprise", type="pull")
 ```
-Combine with `from="me"` for your PRs, or `from="Person Name"` for theirs.
+Combine with `owner="me"` for PRs you authored, or `from="me"` for PRs you touched (includes reviews/comments).
 
 ### Find recent changes
 ```
@@ -206,6 +206,25 @@ Specific technical terms beat broad role queries. `"OPSAI tenant GCP"` > `"my cl
 | Search for public/external info | Use WebSearch — Glean is internal only |
 | Guess `dynamic_search_result_filters` | Only use values from actual results |
 | Broad queries ("my work") | Specific terms ("content-dev-skills repo") |
+
+## Rate Limiting
+
+Glean MCP enforces rate limits. When you hit them:
+
+**Symptoms:** Empty results, errors, or degraded responses after many rapid queries.
+
+**Workarounds:**
+- **Batch your intent** — combine filters in one query instead of running 5 separate searches
+- **Use `chat` for synthesis** — one `chat` call replaces multiple `search` + `read_document` rounds
+- **Cache URLs** — if you already have a document URL, use `read_document` directly instead of re-searching
+- **Space out exhaustive searches** — `exhaustive=true` is expensive; don't chain them
+- **Retry with backoff** — if a query fails, wait a few seconds before retrying
+
+**Detection:** If you get 0 results on a query that should return results, or get an error response, you're likely rate-limited. Try a simpler query after a short pause.
+
+## DM Privacy Note
+
+`search(query="...", app="slack", type="direct message")` only returns DMs that Glean has indexed based on your organization's privacy settings. Not all DMs may be searchable.
 
 ## Agent Delegation
 

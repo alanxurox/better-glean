@@ -1,6 +1,6 @@
 {
   "name": "better-glean",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Precise Glean MCP query patterns — stop getting 16 generic results",
   "author": "Alan Xu",
   "license": "MIT",

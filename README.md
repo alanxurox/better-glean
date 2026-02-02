@@ -11,22 +11,13 @@ Your Glean MCP server has 12 search parameters. Most AI agents use one: `query`.
 search(query="deployment automation")
 # → 16 mixed results from Slack, Confluence, Jira, GitHub...
 
-# After: precise query
-search(query="deployment automation", app="githubenterprise", type="pull")
-# → PRs about deployment automation
-
-search(query="*", from="me", sort_by_recency=true)
-# → Everything you touched recently
-```
-
-```python
-# Before: hoping Glean figures it out
-search(query="what did the team discuss about the migration")
-# → Stale Confluence pages from 2024
-
 # After: targeted Slack search
 search(query="migration", app="slack", updated="past_week")
 # → This week's Slack discussions about the migration
+
+# After: everything you authored recently
+search(query="*", owner="me", sort_by_recency=true)
+# → Your recent documents across all sources
 ```
 
 ## Install
